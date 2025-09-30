@@ -27,9 +27,8 @@ Modifica estas variables según tus datos:
 const CONFIG = {
     PHONE_DISPLAY: "2604-412997",     // Teléfono para mostrar
     WA_E164: "5492604412997",               // WhatsApp formato E.164 (sin +)
-    INSTAGRAM_HANDLE: "@laliboldrini.psi",  // Usuario Instagram
-    EMAIL_CONTACT: "contacto@laliboldrini.com", // Email de contacto
-    PROFILE_IMG: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=2187&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D%3D", // Foto perfil
+    INSTAGRAM_HANDLE: "@psicologa.laliboldrini",  // Usuario Instagram
+    PROFILE_IMG: "https://res.cloudinary.com/dgyjeotoa/image/upload/v1759263991/Imagen_de_WhatsApp_2025-09-30_a_las_17.18.04_fe7cc138_rjlwgf.jpg", // Foto perfil
 };
 </script>
 
@@ -66,6 +65,10 @@ body {
     background: var(--bg);
     line-height: 1.6;
     overflow-x: hidden;
+}
+
+body.body-no-scroll {
+    overflow: hidden;
 }
 
 h1, h2, h3 {
@@ -281,6 +284,7 @@ nav {
     cursor: pointer;
     padding: 8px;
     z-index: 1001;
+    position: relative;
 }
 .menu-toggle .icon-menu, .menu-toggle .icon-close {
     width: 24px;
@@ -487,6 +491,34 @@ section {
     position: absolute;
     left: 0;
     color: var(--brand-cta);
+}
+
+/* Summer Service */
+.summer-service-card {
+    background: white;
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    border: 2px solid var(--brand-cta);
+}
+
+.summer-service-card .service-icon {
+    margin: 0 auto 16px auto;
+}
+
+.summer-service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    color: var(--accent);
+}
+
+.summer-service-description {
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 24px;
 }
 
 /* Benefits */
@@ -972,7 +1004,7 @@ footer {
 /* Mobile */
 @media (max-width: 768px) {
     .nav-links { 
-        display: none; 
+        display: flex; 
         position: fixed;
         top: 0;
         left: 0;
@@ -985,13 +1017,16 @@ footer {
         align-items: center;
         font-size: 1.5rem;
         gap: 40px;
-        transition: transform 0.4s var(--ease);
+        transition: transform 0.4s var(--ease), visibility 0.4s;
         transform: translateX(100%);
+        visibility: hidden;
+        z-index: 1000;
     }
     
     .nav-links.mobile-active {
-        display: flex;
         transform: translateX(0);
+        visibility: visible;
+        transition: transform 0.4s var(--ease);
     }
     .menu-toggle { display: block; }
     
@@ -1003,6 +1038,23 @@ footer {
     .profile-image {
         margin: 0 auto;
     }
+
+    .testimonials-carousel {
+        padding: 0;
+    }
+
+    .testimonial-card {
+        padding: 24px;
+    }
+    
+    .carousel-btn {
+        width: 36px;
+        height: 36px;
+        background: rgba(255, 141, 170, 0.9);
+    }
+
+    .carousel-btn.prev { left: 8px; }
+    .carousel-btn.next { right: 8px; }
     
     .contact-content {
         grid-template-columns: 1fr;
@@ -1048,11 +1100,14 @@ footer {
     "image": "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=2187&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D%D3D",
     "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Buenos Aires",
+        "streetAddress": "Dr. Carlos Pellegrini 449",
+        "addressLocality": "San Rafael",
+        "postalCode": "M5600",
+        "addressRegion": "Mendoza",
         "addressCountry": "AR"
     },
     "sameAs": [
-        "https://instagram.com/laliboldrini.psi"
+        "https://instagram.com/psicologa.laliboldrini"
     ]
 }
 </script>
@@ -1064,6 +1119,7 @@ footer {
         <symbol id="icon-group" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></symbol>
         <symbol id="icon-parents" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.67 18.25a4.42 4.42 0 0 1-5.34 0C4.26 16.69 2 14.33 2 12c0-3.23 2.94-5.5 7-5.5s7 2.27 7 5.5c0 2.33-2.26 4.69-5.33 6.25Z"></path><path d="M18 19a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2v0Z"></path><path d="M6 19a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2v0Z"></path><path d="M12 11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2v0Z"></path></symbol>
         <symbol id="icon-workshops" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></symbol>
+        <symbol id="icon-water" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5s-3 3.5-3 5.5a7 7 0 0 0 7 7z"></path></symbol>
         <symbol id="icon-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></symbol>
         <symbol id="icon-palette" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path></symbol>
         <symbol id="icon-family" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.67 18.25a4.42 4.42 0 0 1-5.34 0C4.26 16.69 2 14.33 2 12c0-3.23 2.94-5.5 7-5.5s7 2.27 7 5.5c0 2.33-2.26 4.69-5.33 6.25Z"></path><path d="M18 19a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2h0a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2Z"></path><path d="M6 19a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2h0a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2Z"></path><path d="M12 11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h0a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2Z"></path></symbol>
@@ -1197,6 +1253,19 @@ footer {
                 </div>
             </div>
         </section>
+
+        <!-- Summer Service Section -->
+        <section id="servicio-verano" class="fade-in">
+            <h2 class="section-title">Novedad de Verano</h2>
+            <div class="summer-service-card">
+                <svg class="service-icon"><use href="#icon-water"></use></svg>
+                <h3>Psicología Infantil en el Agua</h3>
+                <p class="summer-service-description">
+                    Durante <strong>Diciembre, Enero y Febrero</strong>, ofrezco sesiones innovadoras en un entorno acuático seguro en la misma dirección (Dr. Carlos Pellegrini 449, San Rafael). Contamos con piscina y guardavida certificado. Una experiencia terapéutica única para los más chicos.
+                </p>
+                <a href="#" class="btn btn-primary">Consultar por este servicio</a>
+            </div>
+        </section>
         
         <!-- Beneficios -->
         <section id="beneficios" class="fade-in">
@@ -1273,13 +1342,13 @@ footer {
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">¿Cuánto dura cada sesión?<svg class="faq-icon"><use href="#icon-plus"></use></svg></button>
                     <div class="faq-answer">
-                        <p>Las sesiones individuales duran aproximadamente 45-50 minutos. Las grupales pueden extenderse hasta 90 minutos.</p>
+                        <p>Tanto las sesiones individuales como las grupales tienen una duración de 40 minutos.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">¿Cómo agendo una primera consulta?<svg class="faq-icon"><use href="#icon-plus"></use></svg></button>
                     <div class="faq-answer">
-                        <p>Podés contactarte por WhatsApp, Instagram o completar el formulario de contacto. Te responderé a la brevedad.</p>
+                        <p>Podés contactarte por WhatsApp o Instagram. Te responderé a la brevedad.</p>
                     </div>
                 </div>
             </div>
@@ -1291,7 +1360,7 @@ footer {
             <div class="contact-content">
                 <div class="map-container">
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.016709386763!2d-58.38456208477024!3d-34.60373288045952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccac6565b95b5%3A0x2774e578c238871!2sCarlos%20Pellegrini%20449%2C%20C1009ABH%20CABA!5e0!3m2!1ses!2sar!4v1664560123456!5m2!1ses!2sar" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3319.539864228964!2d-68.33235392437699!3d-34.61581457289895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9679081a986c4839%3A0xbe833a6936353348!2sDr.%20Carlos%20Pellegrini%20449%2C%20M5600%20San%20Rafael%2C%20Mendoza%2C%20Argentina!5e0!3m2!1ses!2sar!4v1727733695687!5m2!1ses!2sar" 
                         width="600" 
                         height="450" 
                         style="border:0;" 
@@ -1307,12 +1376,8 @@ footer {
                         <a href="tel:" id="phoneLink">Llamar</a>
                     </div>
                     <div class="contact-item">
-                        <svg><use href="#icon-mail"></use></svg>
-                        <a href="mailto:" id="emailLink">Enviar email</a>
-                    </div>
-                    <div class="contact-item">
                         <svg><use href="#icon-map-pin"></use></svg>
-                        <span>Pellegrini 449, Buenos Aires, Argentina</span>
+                        <span>Dr. Carlos Pellegrini 449, M5600 San Rafael, Mendoza</span>
                     </div>
                     <div class="contact-item">
                         <svg><use href="#icon-clock"></use></svg>
@@ -1369,7 +1434,6 @@ footer {
             <div class="social-links">
                 <a href="#" id="footerWa" target="_blank" rel="noopener noreferrer"><svg><use href="#icon-whatsapp"></use></svg>WhatsApp</a>
                 <a href="#" id="footerIg" target="_blank" rel="noopener noreferrer"><svg><use href="#icon-instagram"></use></svg>Instagram</a>
-                <a href="mailto:" id="footerEmail"><svg><use href="#icon-mail"></use></svg>Email</a>
             </div>
             <p>© 2024 Lic. Lali Boldrini. Todos los derechos reservados.</p>
             <p><a href="#" style="color: var(--muted); text-decoration: none;">Aviso legal</a> | <a href="#" style="color: var(--muted); text-decoration: none;">Política de privacidad</a></p>
@@ -1378,26 +1442,9 @@ footer {
 
 <script>
 // API Key provided by user
-const GEMINI_API_KEY = "AIzaSyALdOIeOHGgbv5Lrhplw8-gZ_yHHA_-LuM";
-
-// Knowledge base for chatbot
-const knowledgeBase = {
-    nombre: "Lic. Lali Boldrini",
-    profesion: "Psicóloga infantil",
-    especialidades: ["terapia grupal", "asesoría parental"],
-    enfoque: "Sistémico, lúdico y expresivo, creando un espacio seguro para el desarrollo emocional.",
-    servicios: {
-        individual: "Terapia individual para niños y adolescentes, manejo de emociones y desarrollo de habilidades sociales.",
-        grupal: "Terapia grupal por edades, enfocada en habilidades sociales y gestión emocional.",
-        padres: "Asesoría a padres con orientación en disciplina positiva y comunicación familiar.",
-        talleres: "Talleres educativos, charlas para padres y capacitaciones en escuelas."
-    },
-    beneficios: "Acompañamiento profesional humano, técnicas adaptadas a cada edad, trabajo con la familia, mejora en comunicación y autoestima.",
-    horarios: "Atención de 8:00 am a 20:00 pm.",
-    modalidad: "Ofrecemos sesiones presenciales en Pellegrini 449 (Buenos Aires, Argentina) y también sesiones online.",
-    obras_sociales: "Sí, trabajamos con varias obras sociales. Es necesario consultar por la cobertura específica.",
-    contacto: "El contacto principal es por WhatsApp o Instagram."
-};
+const apiKey = 'AIzaSyALdOIeOHGgbv5Lrhplw8-gZ_yHHA_-LuM';
+const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+const waMessage = '?text=Hola!%20Vengo%20desde%20la%20web%20y%20quisiera%20agendar%20una%20consulta.';
 
 // Initialize configuration
 document.addEventListener('DOMContentLoaded', function() {
@@ -1418,18 +1465,13 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('phoneLink').href = `tel:${CONFIG.PHONE_DISPLAY.replace(/\s/g, '')}`;
     document.getElementById('phoneLink').textContent = CONFIG.PHONE_DISPLAY;
     
-    document.getElementById('emailLink').href = `mailto:${CONFIG.EMAIL_CONTACT}`;
-    document.getElementById('emailLink').textContent = CONFIG.EMAIL_CONTACT;
-    document.getElementById('footerEmail').href = `mailto:${CONFIG.EMAIL_CONTACT}`;
-    
     // Set all CTA buttons to go to WhatsApp
-    const waMessage = '?text=Hola!%20Vengo%20desde%20la%20web%20y%20quisiera%20agendar%20una%20consulta.';
     const fullWaLink = waLink + waMessage;
 
     document.querySelectorAll('.btn-primary').forEach(button => {
         // Check if the button is for scheduling
         const buttonText = button.textContent || button.innerText;
-        if (buttonText.includes('Agendar') || buttonText.includes('Solicitar')) {
+        if (buttonText.includes('Agendar') || buttonText.includes('Solicitar') || buttonText.includes('Consultar')) {
             button.href = fullWaLink;
             button.target = '_blank';
             button.rel = 'noopener noreferrer';
@@ -1442,6 +1484,11 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeChatbot();
     initializeMobileMenu();
     
+    // Form submission for chatbot
+    document.getElementById('chatForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        sendMessage();
+    });
 });
 
 // Preloader
@@ -1467,31 +1514,6 @@ function initializeIntersectionObserver() {
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 }
 
-// Mobile Menu
-function initializeMobileMenu() {
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-    
-    menuToggle.addEventListener('click', function() {
-        const isActive = navLinks.classList.toggle('mobile-active');
-        menuToggle.classList.toggle('active');
-        menuToggle.setAttribute('aria-expanded', isActive);
-        menuToggle.setAttribute('aria-label', isActive ? 'Cerrar menú' : 'Abrir menú');
-    });
-
-    // Close menu when a link is clicked
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            if (navLinks.classList.contains('mobile-active')) {
-                navLinks.classList.remove('mobile-active');
-                menuToggle.classList.remove('active');
-                menuToggle.setAttribute('aria-expanded', 'false');
-                menuToggle.setAttribute('aria-label', 'Abrir menú');
-            }
-        });
-    });
-}
-
 // FAQ functionality
 function initializeFAQ() {
     document.querySelectorAll('.faq-question').forEach(button => {
@@ -1501,18 +1523,45 @@ function initializeFAQ() {
             
             // Close all other items
             document.querySelectorAll('.faq-item.active').forEach(item => {
-                if(item !== faqItem) {
+                if (item !== faqItem) {
                     item.classList.remove('active');
                     item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
                 }
             });
 
-            // Toggle current item
-            faqItem.classList.toggle('active', !wasActive);
+            if (!wasActive) {
+                faqItem.classList.add('active');
+            } else {
+                 faqItem.classList.remove('active');
+            }
             this.setAttribute('aria-expanded', !wasActive);
         });
     });
 }
+
+// Mobile Menu
+function initializeMobileMenu() {
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    const body = document.body;
+
+    menuToggle.addEventListener('click', () => {
+        const isExpanded = navLinks.classList.toggle('mobile-active');
+        menuToggle.classList.toggle('active');
+        body.classList.toggle('body-no-scroll', isExpanded);
+        menuToggle.setAttribute('aria-expanded', isExpanded);
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('mobile-active');
+            menuToggle.classList.remove('active');
+            body.classList.remove('body-no-scroll');
+            menuToggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+}
+
 
 // Testimonials carousel
 let currentTestimonial = 0;
@@ -1520,9 +1569,6 @@ function moveCarousel(direction) {
     const track = document.getElementById('testimonialsTrack');
     const testimonials = track.children.length;
     currentTestimonial = (currentTestimonial + direction + testimonials) % testimonials;
-    track.style.transform = `translateX(-${currentTestimonial * (100 / testimonials)}%)`;
-
-    // A small correction for multi-item view if needed later
     track.style.transform = `translateX(-${currentTestimonial * 100}%)`;
 }
 
@@ -1533,67 +1579,54 @@ function initializeChatbot() {
     
     // Add welcome message
     setTimeout(() => {
-        addBotMessage('¡Hola! Soy tu asistente virtual. ¿Cómo puedo ayudarte hoy?');
-        addQuickReplies(['¿Qué servicios ofreces?', '¿Cuál es el horario?', 'Agendar una consulta']);
-    }, 1500);
-    
-    // Handle form submission
-    document.getElementById('chatForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        sendMessage();
-    });
+        addBotMessage('¡Hola! Soy el asistente virtual de Lali. ¿En qué puedo ayudarte?');
+    }, 1000);
 }
 
 function toggleChatbot() {
     const container = document.getElementById('chatbotContainer');
     const isActive = container.classList.toggle('active');
     container.setAttribute('aria-hidden', !isActive);
+    if(isActive) {
+        document.getElementById('chatInput').focus();
+    }
 }
 
-async function sendMessage() {
+function sendMessage() {
     const input = document.getElementById('chatInput');
     const message = input.value.trim();
     if (!message) return;
     
     addUserMessage(message);
     input.value = '';
-    addBotMessage('Escribiendo...', 'typing'); // Show typing indicator
+    input.focus();
     
-    const response = await getGeminiResponse(message);
-    
-    // Remove typing indicator
-    const typingIndicator = document.querySelector('.message.typing');
-    if (typingIndicator) {
-        typingIndicator.remove();
-    }
-
-    addBotMessage(response);
+    getBotAnswer(message);
 }
 
-async function getGeminiResponse(query) {
-    const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${GEMINI_API_KEY}`;
+async function getBotAnswer(query) {
+    addBotMessage("Pensando..."); // Typing indicator
 
-    const systemPrompt = `
-        Eres un asistente virtual amigable y profesional para la psicóloga infantil Lic. Lali Boldrini.
-        Tu nombre es "Lali Asistente".
-        Responde a las preguntas del usuario de forma concisa y clara, basándote en la siguiente información de contexto.
-        No inventes información que no esté proporcionada.
-        Al final de CADA respuesta, sin excepción, invita amablemente al usuario a contactar por WhatsApp para una atención más personalizada o a visitar el perfil de Instagram para ver más contenido.
-        
-        Contexto:
-        ${JSON.stringify(knowledgeBase)}
-    `;
-
-    const payload = {
-        contents: [{
-            parts: [{
-                text: `${systemPrompt}\n\nPregunta del usuario: "${query}"`
-            }]
-        }]
-    };
+    const systemPrompt = `Eres un asistente virtual para una psicóloga infantil llamada Lali Boldrini. Tu tono debe ser amable, profesional y servicial.
+    - Tu objetivo principal es resolver dudas básicas y animar al usuario a contactar a Lali por WhatsApp o a visitar su Instagram.
+    - Siempre, al final de cada respuesta, incluye una invitación clara para contactar por WhatsApp o visitar Instagram.
+    - No respondas preguntas que no estén relacionadas con psicología infantil, los servicios de Lali o temas administrativos (horarios, contacto, etc.). Si te preguntan algo fuera de tema, responde amablemente que no tienes información sobre eso y redirige a WhatsApp.
+    - Información clave:
+        - Nombre: Lic. Lali Boldrini
+        - Especialidad: Psicología infantil, terapia grupal, asesoría a padres.
+        - Horarios: Lunes a Viernes, 8:00 a 20:00.
+        - Modalidad: Presencial y online.
+        - Obras Sociales: Sí, se aceptan varias. El usuario debe consultar por su caso específico.
+        - Contacto principal: WhatsApp.`;
 
     try {
-        const response = await fetch(API_URL, {
+        const payload = {
+            contents: [{
+                parts: [{ text: systemPrompt + "\n\nUsuario: " + query }]
+            }]
+        };
+
+        const response = await fetch(apiUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -1602,58 +1635,61 @@ async function getGeminiResponse(query) {
         });
 
         if (!response.ok) {
-            console.error("API Error:", response.status, await response.text());
-            return "Lo siento, estoy teniendo problemas para conectarme. Por favor, intenta de nuevo más tarde.";
+            const errorData = await response.json();
+            console.error("API Error:", response.status, errorData);
+            updateLastBotMessage("Lo siento, estoy teniendo problemas para conectarme. Por favor, intenta de nuevo más tarde o contacta directamente por WhatsApp.");
+            return;
         }
 
         const data = await response.json();
-        const text = data.candidates[0].content.parts[0].text;
-        return text;
+        const text = data.candidates[0]?.content?.parts[0]?.text;
+        
+        if (text) {
+            const fullResponse = `${text}<br><br>Para agendar una consulta o para más detalles, puedes escribirme por <a href="https://wa.me/${CONFIG.WA_E164}${waMessage}" target="_blank">WhatsApp</a> o visitar mi perfil de <a href="https://instagram.com/${CONFIG.INSTAGRAM_HANDLE.replace('@','')}" target="_blank">Instagram</a>.`;
+            updateLastBotMessage(fullResponse);
+        } else {
+            updateLastBotMessage(`No he podido procesar tu solicitud. ¿Podrías reformular tu pregunta? O si prefieres, contacta directamente por <a href="https://wa.me/${CONFIG.WA_E164}${waMessage}" target="_blank">WhatsApp</a>.`);
+        }
+
     } catch (error) {
-        console.error("Error fetching Gemini response:", error);
-        return "Ups, algo salió mal. Para una respuesta inmediata, te recomiendo contactarnos por WhatsApp.";
+        console.error("Fetch Error:", error);
+        updateLastBotMessage("Hubo un error de conexión. Por favor, revisa tu conexión a internet o intenta contactar por WhatsApp.");
     }
 }
 
-function addMessage(text, type) {
+
+function addMessage(content, type) {
     const messagesDiv = document.getElementById('chatMessages');
     const messageEl = document.createElement('div');
     messageEl.className = `message ${type}`;
-    messageEl.textContent = text;
+    messageEl.innerHTML = content; // Use innerHTML to render links
     messagesDiv.appendChild(messageEl);
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    return messageEl;
 }
 
-const addBotMessage = (text, type = 'bot') => addMessage(text, type);
-const addUserMessage = (text) => addMessage(text, 'user');
+function addUserMessage(message) {
+    // Sanitize user input before displaying
+    const sanitizedMessage = message.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    addMessage(sanitizedMessage, 'user');
+}
 
-function addQuickReplies(options) {
+function addBotMessage(message) {
+    return addMessage(message, 'bot');
+}
+
+function updateLastBotMessage(newMessage) {
     const messagesDiv = document.getElementById('chatMessages');
-    const container = document.createElement('div');
-    container.style.cssText = 'display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px;';
-    
-    options.forEach(option => {
-        const button = document.createElement('button');
-        button.textContent = option;
-        button.className = 'btn btn-secondary';
-        button.style.cssText = 'padding: 6px 12px; font-size: 0.9rem;';
-        button.onclick = async () => {
-            addUserMessage(option);
-            container.remove();
-            addBotMessage('Escribiendo...', 'typing');
-            const response = await getGeminiResponse(option);
-            const typingIndicator = document.querySelector('.message.typing');
-            if (typingIndicator) typingIndicator.remove();
-            addBotMessage(response);
-        };
-        container.appendChild(button);
-    });
-    
-    messagesDiv.appendChild(container);
-    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    const lastMessage = messagesDiv.querySelector('.message.bot:last-child');
+    if (lastMessage && lastMessage.textContent === "Pensando...") {
+        lastMessage.innerHTML = newMessage;
+    } else {
+        addBotMessage(newMessage);
+    }
 }
 
-// Modal for Methodology
+
+// Modal functionality
 function showMethodology() {
     const modal = document.getElementById('methodologyModal');
     modal.classList.add('active');
@@ -1665,16 +1701,13 @@ function hideMethodology() {
     modal.classList.remove('active');
     modal.setAttribute('aria-hidden', 'true');
 }
-
-// Close modal with Escape key
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-        hideMethodology();
-    }
-});
 </script>
 </body>
 </html>
+
+
+
+
 
 
 
